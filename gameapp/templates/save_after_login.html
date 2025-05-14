@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Saving Score...</title>
+    <meta name="csrf-token" content="{{ csrf_token }}">
+</head>
+<body>
+    <h2>Saving your score...</h2>
+    <script>
+        const moves = localStorage.getItem('moves');
+        const time = localStorage.getItem('time');
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+        if (moves && time) {
+            fetch('/save-after-login/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrfToken
+                },
+                body: JSON.stringify({
+                    moves: parseInt(moves),
+                    time: parseFloat(time)
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                localStorage.removeItem('moves');
+                localStorage.removeItem('time');
+                window.location.href = '/scores/';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                window.location.href = '/scores/';
+            });
+        } else {
+            window.location.href = '/scores/';
+        }
+    </script>
+</body>
+</html>

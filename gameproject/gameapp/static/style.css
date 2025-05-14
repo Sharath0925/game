@@ -1,0 +1,92 @@
+body {
+    background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+h1 {
+    margin: 20px 0;
+    font-size: 2.5rem;
+    color: black;
+}
+
+
+
+body.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+.dark-mode .card {
+    background-color: #333;
+    border: 1px solid #999;
+}
+
+
+
+.stats {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: black;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-gap: 15px;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 450px;
+}
+
+.card {
+    width: 100px;
+    height: 100px;
+    background-color: #032d60;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: transparent;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.card.flipped,
+.card.matched {
+    background-color: #28a745; /* Green for matched */
+    color: #000;
+}
+
+.card.mismatch {
+    background-color: #dc3545 !important; /* Red for mismatch */
+    color: #000 !important;
+}
+
+
+.card, .card * {
+    user-select: none;      /* Prevents text selection */
+    -webkit-user-drag: none; /* Prevents image dragging in WebKit browsers */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+  
+  img {
+    pointer-events: none;
+    
+  }
+  
+  .card {
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+  

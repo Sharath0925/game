@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign Up</title>
+  <style>
+    body {
+        background-color: #f0f2f5;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .container {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        width: 400px;
+        height: 100%;
+    }
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    input {
+        width: 90%;
+        padding: 10px;
+        margin-bottom: 5px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+    }
+    button {
+        width: 95%;
+        padding: 10px;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 9px;
+        cursor: pointer;
+        margin-bottom: 10px;
+    }
+    button:hover {
+        background: #0056b3;
+    }
+    .form-container {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Create an Account</h2>
+    <form method="post">
+      {% csrf_token %}
+
+      <div class="form-container">
+        <label><b>First Name:</b></label>
+        <input type="text" name="firstname" required>
+      </div>
+
+      <div class="form-container">
+        <label><b>Last Name:</b></label>
+        <input type="text" name="lastname" required>
+      </div>
+
+      <div class="form-container">
+        <label><b>Username:</b></label>
+        <input type="text" name="username" required>
+      </div>
+
+      <div class="form-container">
+        <label><b>Email:</b></label>
+        <input type="email" name="email" required>
+      </div>
+
+      <div class="form-container">
+        <label><b>Mobile Number:</b></label>
+        <input type="tel" name="mobile" pattern="[0-9]{10}" required>
+      </div>
+
+      <div class="form-container">
+        <label><b>Password:</b></label>
+        <input type="password" name="password1" required>
+      </div>
+
+      <div class="form-container">
+        <label><b>Confirm Password:</b></label>
+        <input type="password" name="password2" required>
+      </div>
+
+      <button type="submit">Sign Up</button>
+      <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+
+      {% if error %}
+        <p style="color: red; text-align: center;">{{ error }}</p>
+      {% endif %}
+    </form>
+  </div>
+
+</body>
+</html>

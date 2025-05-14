@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Memory Game</title>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+  <h1>🧠 Memory Game</h1>
+ 
+ 
+
+  <div class="stats">
+    <span id="timer">⏱️ Time: 0s</span>
+    <span id="moves">🎯 Moves: 0</span>
+  </div>
+  <div id="controls">
+    <button onclick="restartGame()">🔄 Restart</button>
+    <button onclick="toggleDarkMode()">🌓 Toggle Dark Mode</button>
+  </div>
+  <br>
+  <div class="game-board" id="game-board"></div>
+  <script src="{% static 'script.js' %}"></script>
+</body>
+</html>
+  
