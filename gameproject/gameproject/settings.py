@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-i%%7x5iu08&n=^ac5q&9)+8#)wzkwx6w1=ce$1u)g$9x97f%x1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['game-3o6g.onrender.com', 'localhost', '127.0.0.1']
+
 
 
 # Application definition
@@ -76,14 +77,14 @@ WSGI_APPLICATION = 'gameproject.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
+"""
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
